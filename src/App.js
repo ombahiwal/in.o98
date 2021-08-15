@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import './index.css';
+import { Container } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Gallery from './Pages/Gallery';
+import TopNav from './Components/TopNav';
+import Photography from './Pages/Photography';
+function App(props) {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <TopNav/>
+    <Switch>
+      <Route path="/gallery">
+          <Gallery/> 
+      </Route>
+       <Route path="/photo">
+          <Photography/> 
+      </Route>
+      <Route path="/">
+      <Container>
+      </Container>
+      </Route>
+    </Switch>
+  </Router>
   );
 }
 
